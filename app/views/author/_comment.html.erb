@@ -1,0 +1,36 @@
+<% if com.count>0 %>
+<b><p> Comments on this post </p></b>
+
+<table class="table table-hover">
+ <thead class="thead-dark">
+<tr>
+	<th>Comments</th>
+	<th>Replies</th>
+	<th colspan="2">Action</th>
+</tr>
+</thead>
+<% com.each do |c| %>
+<tr>
+<td>
+<%= c.description %>
+
+ 
+ </td>
+	<td>	
+ <% c.replys .each do |r| %>
+ 
+ reply--><%= r.message %>
+
+</br>
+ <% end %>
+</td>
+ <td>
+<%= link_to "reply",author_reply_path(c.id) %></br>
+</td>
+<td>
+	<%= link_to "Delete", author_path(c.id) ,remote: true , method: :delete%>  
+</td>
+</tr>
+<% end %>
+</table>
+<% end %>

@@ -1,0 +1,22 @@
+<div style="padding:50px">
+<table class="table table-bordered">
+ <thead class="thead-dark">
+<tr>
+	<th>Title</th>
+	<th>Description</th>
+	<th colspan="2" style="text-align:center">Action</th>
+</tr>
+</thead>
+<% @post.each do |p| %>
+<tr>
+<td><%= p.title %></td>
+<td><%=p.description %></td>
+<td><%= link_to "view", author_path(p.id) %> </td>
+<td><%= link_to "edit", edit_author_path(p.id) %> </td>
+</tr>
+<% end %>
+</table>
+<div style="text-align:center">
+<%= link_to "Back to Home",author_index_path %>
+</div>
+</div>

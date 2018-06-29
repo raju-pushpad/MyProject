@@ -1,0 +1,40 @@
+
+<div>
+<nav class="navbar navbar-expand-md bg-dark  navbar-dark ">
+  <!-- <a class="navbar-brand" href="#">Home</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      
+      
+      <% if user_signed_in? %>
+      <li class="nav-item">
+       
+   <%=  link_to "LogOut" ,destroy_user_session_path, method: :delete, class: "nav-link"%> 
+  
+      </li>
+      <% else %> 
+      <li class="nav-item">
+   <%=  link_to "Home" , root_path, method: :get, class: "nav-link"%> 
+   </li>
+    
+      <li class="nav-item ">
+   <%=  link_to "Login" , new_user_session_path, method: :get, class: "nav-link"%> 
+  
+      </li>
+
+      <li class="nav-item " >
+   <%=  link_to "Signup" , new_user_registration_path, method: :get, class: "nav-link"%> 
+  
+      </li>
+     
+    
+      <%  end %>     
+    </ul>
+   
+  </div>  
+</nav>
+ 
+</div>

@@ -1,0 +1,28 @@
+<div style="text-align:center;padding:90px">
+welcome Editor
+</br></br>
+<p>All Posts--></p>
+<table class="table table-hover" >
+ <thead class="thead-light">
+<tr>
+	<th>
+		title
+	</th>
+	<th>
+		Description
+	</th>
+	<th colspan="2">
+		Action
+	</th>
+</tr>
+</thead>
+<% @post.each do |post| %>
+<tr>
+	<td><%= post.title %> </td>
+	<td><%= post.description %></td>
+	<td><%= link_to "edit",edit_editor_path(post.id) %></td>
+	<td><%= link_to "delete",editor_path(post.id), method: :delete %></td>
+</tr>
+<%end%>
+</table>
+</div>

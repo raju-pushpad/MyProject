@@ -1,0 +1,78 @@
+<div class="container" style="text-align:center">
+<h1>Welcome</h1>
+<br/><br/><br/>
+
+<h3>All Posts </h3>
+
+<table class="table">
+<thead class="thead-dark">
+	<tr>
+		<th>Title</th>
+		<th colspan="3" style="text-align:center"> Description</th>
+		
+	</tr>	
+</thead>
+
+<% @post.each do |post| %>
+<tr>
+	<td><%= post.title %></td>
+	<td><%= post.description %></td>
+	<td>
+	<%=	form_for @like ,url: {action: "like_post"}, method: :get do |f|	 %>
+
+		<%= f.submit "Like"%>
+	<% end %>
+	</td>
+	
+</tr>
+<% end %>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="/assets/nature.jpg" data-toggle="lightbox" data-title="title" data-footer="footer">
+	<img src= "/assets/nature.jpg" class="img-fuild">
+</a>
+
+<div  style="margin-bottom:30px">
+<div class="row">
+<a href="/assets/2.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4" >
+<img src="/assets/2.jpg" class="img-fluid">
+</a>
+<a href="/assets/3.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+<img src="/assets/3.jpg" class="img-fluid">
+</a>
+<a href="/assets/4.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+<img src="/assets/4.jpg" class="img-fluid">
+</a>
+</div>
+</div>
+<pre>lkdflk
+ds
+sg
+fdsgaa
+dg
+dfg
+dfg
+sdfg
+dfg
+gdg
+</pre>
+</div>
+</div>

@@ -1,0 +1,27 @@
+
+<div style="padding:50px">
+<div style="text-align:center;margin-top:20px">
+<%= link_to "Add More Posts",new_author_path %></br>
+<%= link_to "Home",author_index_path, method: :get %></br>
+</div>
+<table class="table">
+<tr>
+<th>Title </th>
+<th>Description</th>
+<!-- <th>Edit</th>
+<th>Delete</th> -->
+
+</tr>
+<tr>
+<td><%= @post.title %></td>
+<td><%= @post.description %></td>
+
+</tr>
+</table>
+ 
+</br></br>
+	<div id="commentAuthor">
+		<%= render 'comment', com: @com %>
+	</div>
+
+</div>

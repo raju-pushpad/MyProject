@@ -1,0 +1,47 @@
+<div class="container">
+<div class="row">
+<div class="col-sm-3">
+</div>
+<div class="col-sm-6">
+<h2 style="text-align:center">Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-group">
+    <%= f.label :email, class:"control-label"%><br />
+    <%= f.email_field :email,class: "form-control", autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password,class:"control-label" %><br />
+    <%= f.password_field :password,class: "form-control", autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="form-group" style="text-align:center">
+    <%= f.submit "Log in", class: "btn btn-default btn-primary" %><br/>
+  
+<% end %>
+
+
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %><br/>
+
+  <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %><br/>
+
+  <%= link_to "Sign in with LinkedIn", user_linkedin_omniauth_authorize_path %><br/>
+  
+   <%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path %><br/>
+  
+
+<%= render "users/shared/links" %>
+</div>
+<div class="col-sm-3">
+</div>
+</div>
+</div>
+</div>

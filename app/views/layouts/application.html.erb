@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyTask</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div><%= render "layouts/header" %></div>
+  <div style="text-align:center;margin-top:10px">
+  <div class="notice"><%= notice %></div>
+  <div class="alert"><%= alert %></div>
+  
+
+  <br/>
+  </div>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+  </body>
+</html>

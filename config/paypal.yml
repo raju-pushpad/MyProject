@@ -1,0 +1,30 @@
+test: &default
+
+  # Credentials for REST APIs
+  client_id: AXe81l2ZXnl4QmtLYFsGesviwWDTFHG5nRDu-_ISMwACiS0VWeO5688nN50pSOtwLy-uhBhG9M-ArcUI
+  client_secret: EAbMoJTkvt15AnMJ_BAH2-SvIJX1Uep2H3CLKNk_NsTnoq0Ykx1qMTQSxyqWKWmzPmeGeEbP5OIelrom
+
+  # Mode can be 'live' or 'sandbox'
+  mode: sandbox
+
+  # Credentials for Classic APIs
+  app_id: APP-80W284485P519543T
+  username: rajuyuvasoft233-facilitator_api1.gmail.com
+
+  password: TX3A9Y7EW8TK8TA2
+  signature: AfFTbfgdMkZj8k16EcKWfyJr7OlLAa3cW6RQr0mlQ4p4Dgp5C270j6id-RWy
+  # # With Certificate
+  # cert_path: "config/cert_key.pem"
+  sandbox_email_address: rajuyuvasoft233-facilitator@gmail.com
+
+  # # IP Address
+  # ip_address: 127.0.0.1
+  # # HTTP Proxy
+  # http_proxy: http://proxy-ipaddress:3129/
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  mode: live

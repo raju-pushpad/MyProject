@@ -1,0 +1,46 @@
+<% if com.count>0 %>
+<h4>Comments-</h4>
+
+
+	<br/>
+	
+	<table class="table table-hover" id="data">
+	 <thead class="thead-dark">
+	 <tr>
+	 
+	<th>
+		Comments
+	</th>
+	<th>
+	Replies
+	</th>
+	</tr>
+	</thead>
+	<% com.each do |cmt| %>
+		<tr>
+		<td>
+	 <%= cmt.description %>
+
+		 <b>User:  </b><%= User.find(cmt.user_id).name %>
+
+		 <% if cmt.user_id == current_user.id %>
+			<%= link_to "Delete",reader_path(cmt.id), method: :delete, remote: true %>
+		 <% end %>
+
+		 </td>
+		 
+
+		 <td> 
+
+		<% cmt.replys .each do |r| %>
+			<b>reply  :</b><%= r.message %>
+			(user:<%= r.comment.post.user.name  %>) 
+			<br/>
+		<% end %>
+		</td>
+		</tr>
+	<% end %> 
+
+</br></br>
+</table>
+<% end %>

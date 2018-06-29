@@ -1,0 +1,22 @@
+</br>
+<div style="padding:100px">
+<%= form_for @post, url: { action: "create"} do |f| %>
+<div class="form-group">
+<%= f.label :title,class:"control-label" %>
+<%= f.text_field :title,class:"form-control" %>
+</div>
+<br/>
+<div class="form-group">
+<%= f.label :description,class:"control-label" %>
+<%= f.text_area :description,class:"form-control" %>
+</div>
+<br/>
+<div class="form-group" style="text-align:center">
+<%= f.submit "Submit Post", class: "btn btn-primary btn-default" %><br/>
+
+<% end %>
+<div style="margin-top:20px">
+<%= link_to "Back" ,author_index_path %>
+</div>
+</div>
+</div>

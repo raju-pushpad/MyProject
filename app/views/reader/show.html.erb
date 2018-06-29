@@ -1,0 +1,128 @@
+
+
+<div style="padding:90px">
+<table class="table table-hover table-borderless">
+	<tr>
+	<td><h4>Post--</h4>	</td>
+	</tr>
+	<tr>
+		<td><%= @post.title %></td>
+		<td><%= @post.description %></td>
+	
+	
+
+<td>
+<div id="like_unlike">
+<%= render 'like_action' %>
+</div>
+	
+		 
+		
+	</td>
+
+
+</tr>
+<tr>
+	<td>
+
+<h4>Post Comment </h4>
+<%= form_for reader_path, remote: true do |f| %>
+	<div class="form-group">
+		<%= f.label :description, "comment"%>
+		<%= f.text_area :description,class:"form-control", id:"textArea" %></br>
+		</div>
+		<div class="form-group" style="text-align:center">
+		<!-- 
+	<%= f.submit "Post Comment", class: "btn btn-primary btn-defualt" %> -->
+	<button id='sbmt' >Submit Comment</button>
+	</div>
+<% end %>
+
+</td>
+</tr>
+</table>
+
+	<div id="comment">
+		<%= render 'comment', com: @com %>
+	</div>
+
+
+<div>
+	<%= link_to "back", reader_index_path %>
+</div>
+</div>
+
+
+<script>
+
+
+	$("#like").click(function(){
+		
+		$.ajax({
+	  type: "GET", 
+	  url: "/reader/like_post",
+	  data: {},
+	  success: function(xyz){ 
+	  	
+	  	$("#count").text(xyz.like+" likes")
+
+			$("#dislike").show()	  	
+			
+			$("#like").hide()
+		
+	  },
+	  error: function(xyz){
+	  		alert("error")
+	  }
+})
+	})
+
+$("#dislike").click(function(){
+
+		$.ajax({
+	  type: "GET", 
+	  url: "/reader/dislike_post",
+	  data: {},
+	  success: function(xyz){ 
+	  	
+	  	$("#count").text(xyz.like+" likes")
+	  	
+	  	$("#dislike").hide()
+	  	
+	  	$("#like").show()
+	  },
+	  error: function(xyz){
+	  		alert("error")
+	  	}
+}) })
+
+	
+   $("#sbmt").click(function(e)
+   {
+   	
+   	var comment=$("#textArea").val();
+   	$.ajax({
+	  type: "POST", 
+	  url: "/reader",
+	  data: {"description" : comment	},
+	  success: function(xyz){ 
+	  	var comment=xyz.description
+	  	var user=xyz.name
+	  	alert(comment)
+	  	alert(user)
+	  	// alert(user.name)
+	  	// alert(comment)
+	  	$("#data").append("<tr><td>"+comment+" <b>User</b>:"+user+"</td></tr>")
+	  	 $("#textArea").val("")
+	  },
+	  error: function(xyz){
+	  		alert(xyz.error)
+	  		alert("error")
+	  }
+})
+   })
+
+</script>
+
+
+

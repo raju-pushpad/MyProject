@@ -1,0 +1,9 @@
+
+<% link_text =
+ @post.likes.where(
+ 	user_id: current_user.id).present? ? 'unlike' : 'like' %>
+
+ 	<%= button_to link_text+
+ 	'('+@post.likes.count.to_s+')' ,
+ 	reader_like_post_path(@post), 
+ 	remote: true, method: :post %>
